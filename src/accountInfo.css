@@ -1,0 +1,45 @@
+/* PROFILE IMAGE */
+
+#profile-image-container {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+#profile-image-container:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#profile-image {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+}
+
+/* SETTINGS BUTTON */
+
+#settings-button-container {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#settings-icon {
+    transform: scale(1.35);
+    fill: #ffffff;
+}
+
+#settings-button-container:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}

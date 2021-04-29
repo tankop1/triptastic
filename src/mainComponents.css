@@ -1,0 +1,116 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+    width: 100%;
+    background: rgb(63,180,251);
+    background: linear-gradient(90deg, rgba(63,180,251,1) 10%, rgb(70, 252, 140) 100%);
+    position: fixed;
+}
+
+main {
+    height: 80%;
+}
+
+/* TABS */
+
+#tabs {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: min-content;
+    height: 100%;
+    position: fixed;
+}
+
+.tab-container {
+    width: 135px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+}
+
+.tab-title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    width: 120px;
+    height: min-content;
+}
+
+.selected-tab {
+    animation-name: selectTab;
+    animation-duration: .25s;
+    animation-fill-mode: forwards;
+    box-shadow: 0px 0px 25px rgb(78, 78, 78);
+}
+
+@keyframes selectTab {
+    0% {
+        width: 135px
+    }
+    100% {
+        width: 165px;
+    }
+}
+
+#tab1 {
+    background: rgb(63,180,251);
+    background: linear-gradient(145deg, rgba(63,180,251,1) 10%, rgb(70, 252, 140) 100%);
+}
+#tab2 {
+    background: rgb(220,8,255);
+    background: linear-gradient(145deg, rgba(220,8,255,1) 0%, rgba(28,177,255,1) 100%);
+    color: white;
+}
+#tab3 {
+    background: rgb(63,251,110);
+    background: linear-gradient(145deg, rgba(63,251,110,1) 0%, rgba(252,204,70,1) 100%);   
+}
+#tab4 {
+    background: rgb(251,63,222);
+    background: linear-gradient(145deg, rgba(251,63,222,1) 0%, rgba(252,70,70,1) 100%);
+    color: white;
+}
+
+/* CLASSES FOR MAIN APP */
+
+.background1 {
+    background: rgb(63,180,251);
+    background: linear-gradient(145deg, rgba(63,180,251,1) 10%, rgb(70, 252, 140) 100%);
+}
+.background2 {
+    background: rgb(220,8,255);
+    background: linear-gradient(145deg, rgba(220,8,255,1) 0%, rgba(28,177,255,1) 100%);
+}
+.background3 {
+    background: rgb(63,251,110);
+    background: linear-gradient(145deg, rgba(63,251,110,1) 0%, rgba(252,204,70,1) 100%);   
+}
+.background4 {
+    background: rgb(251,63,222);
+    background: linear-gradient(145deg, rgba(251,63,222,1) 0%, rgba(252,70,70,1) 100%);
+}
+
+/* DASHBOARD */
+
+#dashboard-container {
+    width: 85%;
+    height: 100%;
+    margin-top: 150px;
+    float: right;
+}
+
+#weather-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 470px;
+    margin-top: 20px;
+}

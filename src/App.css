@@ -1,0 +1,22 @@
+#react-app-container {
+    width: 100%;
+    height: 100vh;
+    background: rgb(63,180,251);
+    background: linear-gradient(90deg, rgba(63,180,251,1) 10%, rgb(70, 252, 140) 100%);
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: rgb(70, 252, 140);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
