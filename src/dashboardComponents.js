@@ -1,9 +1,9 @@
 import React from 'react';
 import './dashboardComponents.css';
 
-const mapEndpoint = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyD9Jj7nefkF_Py11IlyQFQ3EfE9bNTK4wc&q=';
-const weatherEndpoint = 'https://api.openweathermap.org/data/2.5/weather?appid=d1abe5f16eb3b088a68ad6db06805101&q=';
-const timeEndpoint = 'https://timezone.abstractapi.com/v1/current_time/?api_key=de96946ebedc4ad6bc84c28b02f5a8ba&location=';
+const mapEndpoint = 'https://www.google.com/maps/embed/v1/place?key=GET_YOUR_OWN_API_KEY&q=';
+const weatherEndpoint = 'https://api.openweathermap.org/data/2.5/weather?appid=GET_YOUR_OWN_API_KEY&q=';
+const timeEndpoint = 'https://timezone.abstractapi.com/v1/current_time/?api_key=GET_YOUR_OWN_API_KEY&location=';
 
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let temperature;
