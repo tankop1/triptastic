@@ -105,6 +105,8 @@ main {
     height: 100%;
     margin-top: 150px;
     float: right;
+    display: flex;
+    align-items: center;
 }
 
 #weather-time {

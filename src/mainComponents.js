@@ -36,8 +36,8 @@ class Tab extends React.Component {
     tabClicked(e) {
         let tabItems = [document.getElementById('tab1'), document.getElementById('tab2'), document.getElementById('tab3'), document.getElementById('tab4')];
         let tabItem = e.target;
-        const mainApp = document.getElementById('react-app-container');
-        const lastChar = e.target.id[e.target.id.length - 1];
+        //const mainApp = document.getElementById('react-app-container');
+        //const lastChar = e.target.id[e.target.id.length - 1];
 
         if (e.target.className === 'tab-title') {
             tabItem = e.target.parentElement;
@@ -72,11 +72,14 @@ class Dashboard extends React.Component {
         //GRID LAYOUT HERE
         return (
             <div id="dashboard-container">
-                <MapNode param={this.props.location}/>
-                <div id="weather-time">
-                    <WeatherNode param={this.props.location}/>
-                    <TimeNode param={this.props.location}/>
+                <div id="left-side">
+                    <MapNode param={this.props.location}/>
+                    <div id="weather-time">
+                        <WeatherNode param={this.props.location}/>
+                        <TimeNode param={this.props.location}/>
+                    </div>
                 </div>
+                <AttractionsNode param={this.props.location}/>
             </div>
         );
     }
