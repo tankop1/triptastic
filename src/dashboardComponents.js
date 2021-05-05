@@ -1,9 +1,11 @@
 import React from 'react';
 import './dashboardComponents.css';
+import foursquareLogo from './powered-by-foursquare-removebg-preview.png';
 
 const mapEndpoint = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyD9Jj7nefkF_Py11IlyQFQ3EfE9bNTK4wc&q=';
 const weatherEndpoint = 'https://api.openweathermap.org/data/2.5/weather?appid=d1abe5f16eb3b088a68ad6db06805101&q=';
-const timeEndpoint = 'https://timezone.abstractapi.com/v1/current_time/?api_key=de96946ebedc4ad6bc84c28b02f5a8ba&location=';
+const timeEndpoint = 'https://api.ipgeolocation.io/timezone?apiKey=117d2a387d3946eab53ad7530118c2f8&location=';
+// https://timezone.abstractapi.com/v1/current_time/?api_key=de96946ebedc4ad6bc84c28b02f5a8ba&location=
 const yelpEndpoint = 'https://api.foursquare.com/v2/venues/explore?client_id=IYH3OLP3TP0KINTE1WALOACGWEBTRX2IXANEHKUM5AU3SKSJ&client_secret=PX4VE1B4VFFEECGDDC25150M5O12H01NJJE3USLYEPLELU53&limit=50&v=20180101&near=';
 
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -38,8 +40,8 @@ async function getTimeZone(param) {
         const response = await fetch(timeEndpoint + param);
         if (response.ok) {
             const jsonResponse = await response.json();     
-            currentTime = jsonResponse.datetime.slice(11);
-            timeZone = jsonResponse.timezone_location + ' (' + jsonResponse.timezone_abbreviation + ')';
+            currentTime = jsonResponse.date_time.slice(11);
+            timeZone = jsonResponse.timezone;
             isDST = jsonResponse.is_dst;
         }
     } catch (error) {
@@ -57,7 +59,7 @@ async function getAttractions(param, extraParam) {
         }
         //throw new Error('Request failure!');
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
 }
 
@@ -67,11 +69,14 @@ export class MapNode extends React.Component {
     render() {
         return (
             <div id="map-container">
-                <iframe id="map"
+                {this.props.param && <iframe id="map"
                     loading="lazy"
                     allowFullScreen
                     src={mapEndpoint + this.props.param}>
-                </iframe>
+                    </iframe>}
+                {!this.props.param && <div id="map-loading">
+                    <i className="fas fa-map-marked-alt" id="map-loading-icon"></i>
+                </div>}
             </div>
         );
     }
@@ -99,8 +104,11 @@ export class WeatherNode extends React.Component {
             return (
                 <div id="weather-container">
                     <div id="weather-loading-container">
-                        <h2 id="weather-loading-title">Waiting...</h2>
-                        <i id="spinner" className="fas fa-spinner"></i>
+                        <div id="weather-loading-title"></div>
+                        <div className="weather-loading-text"></div>
+                        <div id="weather-loading-temp"></div>
+                        <div className="weather-loading-text"></div>
+                        <div className="weather-loading-text"></div>
                     </div>
                 </div>
             );
@@ -300,6 +308,13 @@ class BottomControl extends React.Component {
                     <div className="page-button" onClick={this.props.onSix}>6</div>
                     <div className="page-button" id="see-all">See All</div>
                 </div>
+                <a href="https://foursquare.com/" target="_blank" id="foursquare-link"><div id="foursquare-container">
+                    <div id="foursquare-text-container">
+                        <p className="foursquare-text">Powered By</p>
+                        <p className="foursquare-text">Foursquare</p>
+                    </div>
+                    <img src={foursquareLogo} alt="Powered By Foursquare" id="foursquare-logo"/>
+                </div></a>
             </div>
         );
     }
@@ -376,23 +391,22 @@ export class TimeNode extends React.Component {
 
     render() {
         if (timeZone) {
-            console.log('HELLO');
             return (
                 <div id="time-container">
-                    <div class="clock">
-                        <div class="dot"></div>
+                    <div className="clock">
+                        <div className="dot"></div>
                         <div>
-                            <div class="hour-hand"></div>
-                            <div class="minute-hand"></div>
-                            <div class="second-hand"></div>
+                            <div className="hour-hand"></div>
+                            <div className="minute-hand"></div>
+                            <div className="second-hand"></div>
                         </div>
                         <div>
-                            <span class="h3">3</span>
-                            <span class="h6">6</span>
-                            <span class="h9">9</span>
-                            <span class="h12">12</span>
+                            <span className="h3">3</span>
+                            <span className="h6">6</span>
+                            <span className="h9">9</span>
+                            <span className="h12">12</span>
                         </div>
-                        <div class="diallines"></div>
+                        <div className="diallines"></div>
                     </div>
                     <div id="clock-space" height="250px"></div>
                     <div id="time-info">
@@ -408,9 +422,11 @@ export class TimeNode extends React.Component {
         else {
             return (
                 <div id="time-container">
-                    <div id="weather-loading-container">
-                        <h3 id="weather-loading-title">Waiting...</h3>
-                        <i id="spinner" className="fas fa-spinner"></i>
+                    <div id="time-loading-container">
+                        <div id="time-loading-clock"></div>
+                        <div id="time-loading-time"></div>
+                        <div className="time-loading-text"></div>
+                        <div className="time-loading-text"></div>
                     </div>
                 </div>
             );

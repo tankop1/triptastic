@@ -1,6 +1,6 @@
 import './headerComponents.css';
 import React from 'react';
-import { ProfileImage, ProfileDropdown, SettingsButton, SettingsDropdown } from './accountInfo';
+import { ProfileImage, NotificationsButton } from './accountInfo';
 import logo from './triptastic-logo-pink-removebg-preview.png';
 
 export class SearchBar extends React.Component {
@@ -50,8 +50,8 @@ export class AccountInfo extends React.Component {
     render() {
         return (
             <div id="account-info-container">
-                <SettingsButton/>
-                <ProfileImage fullName="Tanner Kopel" src=""/>
+                <NotificationsButton addNotifications={this.props.addNotifications}/>
+                <ProfileImage addProfile={this.props.addProfile} fullName="Tanner Kopel" src=""/>
             </div>
         );
     }
@@ -60,13 +60,13 @@ export class AccountInfo extends React.Component {
 
 class LoginButton extends React.Component {
     render() {
-        return <button id="login-button">Log In</button>;
+        return <button id="login-button" onClick={this.props.onClick}>Log In</button>;
     }
 }
 
 class SignUpButton extends React.Component {
     render() {
-        return <button id="sign-up-button">Sign Up</button>;
+        return <button id="sign-up-button" onClick={this.props.onClick}>Sign Up</button>;
     }
 }
 
@@ -74,8 +74,8 @@ export class NotLoggedIn extends React.Component {
     render() {
         return (
             <div id="not-logged-in-container">
-                <LoginButton/>
-                <SignUpButton/>
+                <LoginButton onClick={this.props.onClick}/>
+                <SignUpButton onClick={this.props.onClick}/>
             </div>
         )
     }

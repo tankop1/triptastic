@@ -1,15 +1,33 @@
 #react-app-container {
     width: 100%;
     height: 100vh;
-    background: rgb(63,180,251);
-    background: linear-gradient(90deg, rgba(63,180,251,1) 10%, rgb(70, 252, 140) 100%);
+    /*background: rgb(63,180,251);
+    background: linear-gradient(90deg, rgba(63,180,251,1) 10%, rgb(70, 252, 140) 100%);*/
     background-attachment: fixed;
     overflow-y: scroll;
 }
 
+/* CLASSES FOR MAIN APP */
+
+.background1 {
+    background: rgb(63,180,251);
+    background: linear-gradient(145deg, rgba(63,180,251,1) 10%, rgb(70, 252, 140) 100%);
+}
+.background2 {
+    background: rgb(220,8,255);
+    background: linear-gradient(145deg, rgba(220,8,255,1) 0%, rgba(28,177,255,1) 100%);
+}
+.background3 {
+    background: rgb(63,251,110);
+    background: linear-gradient(145deg, rgba(63,251,110,1) 0%, rgba(252,204,70,1) 100%);   
+}
+.background4 {
+    background: rgb(251,63,222);
+    background: linear-gradient(145deg, rgba(251,63,222,1) 0%, rgba(252,70,70,1) 100%);
+}
+
 ::-webkit-scrollbar {
     width: 10px;
-    background: rgb(70, 252, 140);
 }
 
 ::-webkit-scrollbar-thumb {

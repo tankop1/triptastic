@@ -23,23 +23,126 @@
     height: 65px;
 }
 
-/* SETTINGS BUTTON */
+/* NOTIFICATIONS BUTTON */
 
-#settings-button-container {
+#notifications-button-container {
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50px;
-    height: 50px;
+    height: 48px;
     cursor: pointer;
 }
 
-#settings-icon {
-    transform: scale(1.35);
-    fill: #ffffff;
+#notifications-icon {
+    transform: scale(1.45);
+    color: white;
 }
 
-#settings-button-container:hover {
+#notifications-button-container:hover {
     background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* PROFILE DROPDOWN */
+
+#profile-dropdown-container {
+    position: absolute;
+    background-color: white;
+    border-radius: 40px;
+    width: 23%;
+    height: 52%;
+    top: 13%;
+    left: 74%;
+    font-family: 'Poppins';
+}
+
+#profile-dropdown-icon {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#profile-dropdown-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.profile-divider {
+    border: none;
+    background-color: black;
+    height: .5px;
+    width: 100%;
+}
+
+#profile-dropdown-item-container {
+    padding: 5px 0px;
+}
+
+.profile-dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0px;
+    cursor: pointer;
+}
+
+.profile-dropdown-item:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.profile-dropdown-item-icon {
+    margin-right: 10px;
+}
+
+#terms-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.term-item {
+    padding: 5px 8px;
+    background-color: rgb(250, 250, 250);
+    font-size: .8rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* NOTIFICATIONS DROPDOWN */
+
+#notifications-dropdown-container {
+    position: absolute;
+    background-color: white;
+    border-radius: 40px;
+    width: 20%;
+    top: 13%;
+    left: 70.5%;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#no-notifications-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 65px;
+    margin-bottom: 60px;
+    margin-top: 70px;
+}
+
+#no-notification-icon {
+    transform: scale(2);
 }
