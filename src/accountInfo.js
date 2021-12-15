@@ -9,7 +9,7 @@ export class ProfileImage extends React.Component {
             </div>
         );
     }
-}
+} // "https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640" image taken from Word Press
 
 export class ProfileDropdown extends React.Component {
     render() {
@@ -25,7 +25,7 @@ export class ProfileDropdown extends React.Component {
                     <div className="profile-dropdown-item"><i className="far fa-user profile-dropdown-item-icon"></i>Profile</div>
                     <div className="profile-dropdown-item"><i className="fas fa-cog profile-dropdown-item-icon"></i>Settings</div>
                     <div className="profile-dropdown-item"><i className="far fa-question-circle profile-dropdown-item-icon"></i>Help Center</div>
-                    <div className="profile-dropdown-item"><i className="fas fa-sign-out-alt profile-dropdown-item-icon"></i>Logout</div>
+                    <div className="profile-dropdown-item" onClick={this.props.onClick}><i className="fas fa-sign-out-alt profile-dropdown-item-icon"></i>Logout</div>
                 </div>
                 <hr className="profile-divider"/>
                 <div id="terms-container">

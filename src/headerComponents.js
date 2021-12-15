@@ -1,14 +1,11 @@
 import './headerComponents.css';
 import React from 'react';
 import { ProfileImage, NotificationsButton } from './accountInfo';
-import logo from './triptastic-logo-pink-removebg-preview.png';
+import logo from './triptastic-logo-pink-removebg-preview.png'; // Logo and favicon was made by myself using the Canva Logo Maker
 
 export class SearchBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            noText: false
-        }
         this.removeSearchInput = this.removeSearchInput.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -16,7 +13,8 @@ export class SearchBar extends React.Component {
     removeSearchInput() {
         let searchInput = document.getElementById('search');
         searchInput.value = '';
-        this.setState({noText: true});
+        this.handleChange({target: {value: ''}});
+        
     }
 
     handleChange(e) {

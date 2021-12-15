@@ -1,0 +1,32 @@
+#flight-dashboard-container {
+    width: 85%;
+    height: 100%;
+    margin-top: 150px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins';
+}
+
+#flight-coming-soon {
+    background-color: rgb(255, 255, 255, 0.2);
+    border-radius: 25px;
+    width: 600px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: -50px;
+}
+
+#flight-coming-soon-title {
+    color: rgb(90, 90, 90);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#flight-coming-soon-button {
+    color: rgb(82,113,255);
+}

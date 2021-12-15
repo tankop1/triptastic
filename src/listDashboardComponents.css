@@ -1,0 +1,402 @@
+#list-dashboard-container {
+    width: 85%;
+    height: 100%;
+    margin-top: 150px;
+    float: right;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins';
+}
+
+/* LIST MAP */
+
+#list-map-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 25px;
+    width: max-content;
+    height: max-content;
+}
+
+#list-map {
+    width: 500px;
+    height: 350px;
+    border-radius: 25px;
+    border: none;
+}
+
+/* SUGGESTED ITEMS */
+
+#suggested-items-container {
+    width: 520px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    height: 250px;
+    margin-top: 25px;
+}
+
+#no-suggested-items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(90, 90, 90);
+    text-align: center;
+}
+
+/* TRAVEL LIST */
+
+#travel-list-container {
+    margin-left: 40px;
+}
+
+#list-results-container {
+    width: 650px;
+    height: 585px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 25px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#no-items {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(90, 90, 90);
+    text-align: center;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+#no-items-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    outline: none;
+    border-radius: 35px;
+    cursor: pointer;
+    padding: 8px 25px;
+    font-size: 1rem;
+    font-family: 'Poppins';
+    margin-top: 25px;
+
+}
+
+#no-items-plus {
+    margin-right: 5px;
+}
+
+/* TOP CONTROL */
+
+#top-control-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#travel-top-control {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 45px;
+    overflow: hidden;
+}
+
+#wishlist, #visited {
+    padding: 0px 20px;
+}
+
+#add-travel-item {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 200px;
+    height: 40px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+#plus {
+    margin-right: 5px;
+}
+
+.selected-list {
+    color: rgb(82,113,255);
+    font-weight: bold;
+}
+
+/* TRAVEL ITEM */
+
+#travel-item-container {
+    display: flex;
+    padding: 0px 15px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    cursor: default;
+}
+
+#travel-item-container:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#travel-item-container:hover .hover-control {
+    visibility: visible;
+}
+
+.item-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#location-info {
+    margin-left: 15px;
+}
+
+#attraction-ideas {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 500px;
+}
+
+#item-star {
+    color: rgb(248, 248, 96);
+    margin-left: 8px;
+    margin-bottom: 3px;
+}
+
+#name-star {
+    display: flex;
+    align-items: center;
+}
+
+.hover-control {
+    cursor: pointer;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: -20px;
+    visibility: hidden;
+}
+
+.hover-control:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.hover-control:active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.hover-icons {
+    transform: scale(1.25);
+    color: rgb(90, 90, 90);
+}
+
+#edit {
+    margin-left: 3px;
+}
+
+.wishlist-checked {
+    color: green;
+}
+
+/* BOTTOM CONTROL */
+
+#bottom-control-container {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+#filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 425px;
+}
+
+.filter {
+    border: none;
+    outline: none;
+    padding: 3px 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.filter:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hidden {
+    display: none;
+}
+
+.selected-filter {
+    background-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* TRAVEL FORM */
+
+#travel-form-container {
+    width: 65%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#list-type-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 375px;
+    margin-top: 35px;
+}
+
+#name-container {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 375px;
+    margin-top: 25px;
+}
+
+#form-title {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1.05rem;
+    font-family: 'Poppins';
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    width: 300px;
+}
+
+#priority-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 42px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#priority-container:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#form-description {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: .95rem;
+    font-family: 'Poppins';
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    width: 375px;
+    height: 200px;
+    margin-top: 25px;
+}
+
+#image-upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    margin-top: 20px;
+}
+
+#file-label {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#file-label:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#file-status {
+    margin-top: 10px;
+}
+
+#image-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#form-submit {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 6px 0px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Poppins';
+    margin-top: 25px;
+    width: 375px;
+}
+
+#form-submit:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.form-list {
+    border: none;
+    outline: none;
+    padding: 6px 0px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    cursor: pointer;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-list:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#exit-form {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-size: 1.2rem;
+    font-weight: lighter;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 36px;
+    height: 35px;
+}
+
+#exit-form:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#exit-form:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}

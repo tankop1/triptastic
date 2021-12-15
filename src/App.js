@@ -3,6 +3,7 @@ import React from 'react';
 import { Header, Main } from './mainComponents';
 import { SignIn } from './signInComponents.js';
 import { ProfileDropdown, NotificationsDropdown } from './accountInfo';
+import { FirebaseAuthProvider } from "@react-firebase/auth";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,11 +13,14 @@ class App extends React.Component {
       page: 1,
       button: 'none',
       profile: false,
-      notifications: false
+      notifications: false,
+      loggedIn: false
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.updateInput = this.updateInput.bind(this);
     this.tabClicked = this.tabClicked.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   updateInput(newLocation) {
@@ -26,13 +30,13 @@ class App extends React.Component {
   }
 
   handleClick(e) {
-    if (e.target.id === 'sign-up-button') {
+    if (e.target.id === 'sign-up-button' || e.target.id === 'link-to-sign-up') {
       this.setState({
         button: 'sign-up'
       });
     }
 
-    else if (e.target.id === 'login-button') {
+    else if (e.target.id === 'login-button' || e.target.id === 'link-to-log-in') {
       this.setState({
         button: 'log-in'
       });
@@ -47,6 +51,20 @@ class App extends React.Component {
     else {
       console.log('ERROR: handleClick error in mainComponents.js');
     }
+  }
+
+  handleSubmit() {
+    this.setState({
+      button: 'none',
+      loggedIn: true
+    });
+  }
+
+  logout() {
+    this.setState({
+      loggedIn: false,
+      profile: false
+    });
   }
 
   tabClicked(e) {
@@ -103,10 +121,10 @@ class App extends React.Component {
           }
         }
       }}>
-        <Header onChange={this.updateInput} onClick={this.handleClick} loggedIn={true} addProfile={() => {this.changeProfile(true)}} addNotifications={() => {this.changeNotifications(true)}}/>
+        <Header onChange={this.updateInput} onClick={this.handleClick} loggedIn={this.state.loggedIn} addProfile={() => {this.changeProfile(true)}} addNotifications={() => {this.changeNotifications(true)}}/>
         <Main location={this.state.location} onSelect={this.tabClicked} page={this.state.page}/>
-        {this.state.button !== 'none' && <SignIn button={this.state.button} onClick={this.handleClick}/>}
-        {this.state.profile && <ProfileDropdown/>}
+        {this.state.button !== 'none' && <SignIn button={this.state.button} onClick={this.handleClick} onSubmit={this.handleSubmit}/>}
+        {this.state.profile && <ProfileDropdown onClick={this.logout}/>}
         {this.state.notifications && <NotificationsDropdown/>}
       </div>
     );

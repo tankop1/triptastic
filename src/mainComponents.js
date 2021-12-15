@@ -2,6 +2,9 @@ import './mainComponents.css';
 import React from 'react';
 import { NotLoggedIn, SearchBar, Logo, AccountInfo } from './headerComponents';
 import { MapNode, WeatherNode, AttractionsNode, TranslaterNode, TimeNode } from './dashboardComponents';
+import { ListDashboard } from './listDashboardComponents';
+import { FlightDashboard } from './flightDashboardComponents';
+import { HotelDashboard } from './hotelDashboardComponents';
 
 export class Header extends React.Component {
     render() {
@@ -22,11 +25,14 @@ export class Main extends React.Component {
             <main>
                 <div id="tabs">
                     <Tab id="1" selected={true} title="Triptastic Search" onSelect={this.props.onSelect}/>
-                    <Tab id="2" title="Flight Booker" onSelect={this.props.onSelect}/>
-                    <Tab id="3" title="Hotel Booker" onSelect={this.props.onSelect}/>
+                    <Tab id="2" title="Book A Flight" onSelect={this.props.onSelect}/>
+                    <Tab id="3" title="Book A Hotel" onSelect={this.props.onSelect}/>
                     <Tab id="4" title="Travel Bucket List" onSelect={this.props.onSelect}/>
                 </div>
                 {this.props.page === 1 && <Dashboard location={this.props.location}/>}
+                {this.props.page === 2 && <FlightDashboard location={this.props.location}/>}
+                {this.props.page === 3 && <HotelDashboard location={this.props.location}/>}
+                {this.props.page === 4 && <ListDashboard location={this.props.location}/>}
             </main>
         );
     }

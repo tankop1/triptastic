@@ -1,7 +1,7 @@
 import React from 'react';
 import './signInComponents.css';
-import logo from './triptastic-logo-pink-removebg-preview.png';
-import googleLogo from './google-index-removebg-preview.png';
+import logo from './triptastic-logo-pink-removebg-preview.png'; // Logo and favicon were made by myself with the Canva Logo Maker
+import googleLogo from './google-index-removebg-preview.png'; // This image was taken from the Google website
 
 export class SignIn extends React.Component {
     render() {
@@ -13,8 +13,8 @@ export class SignIn extends React.Component {
                         <div id="exit-sign-in" onClick={this.props.onClick}>&times;</div>
                     </div>
                     <div id="form">
-                        {this.props.button === 'sign-up' && <SignUpForm/>}
-                        {this.props.button === 'log-in' && <LogInForm/>}
+                        {this.props.button === 'sign-up' && <SignUpForm onClick={this.props.onClick} onSubmit={this.props.onSubmit}/>}
+                        {this.props.button === 'log-in' && <LogInForm onClick={this.props.onClick} onSubmit={this.props.onSubmit}/>}
                     </div>
                 </div>
             </div>
@@ -46,10 +46,10 @@ class SignUpForm extends React.Component {
                     <i className="far fa-eye show-password" onClick={this.showPassword}></i>
                 </div>
                 <div id="submit-container">
-                    <button type="submit" className="sign-in-button">Sign Up</button>
-                    <button type="submit" className="google-button"><img src={googleLogo} alt="Google Logo" className="google-logo"/>Sign Up With Google</button>
+                    <button type="submit" className="sign-in-button" onClick={this.props.onSubmit}>Sign Up</button>
+                    <button type="submit" className="google-button" id="sign-up-google"><img src={googleLogo} alt="Google Logo" className="google-logo"/>Sign Up With Google</button>
                 </div>
-                <a href="#" className="sign-in-link">Already have an account? Log in here</a>
+                <a href="#" className="sign-in-link" id="link-to-log-in" onClick={this.props.onClick}>Already have an account? Log in here</a>
             </form>
         );
     }
@@ -76,9 +76,9 @@ class LogInForm extends React.Component {
                     <input id="password-log-in" type="password" placeholder="Password" className="password"/>
                     <i className="far fa-eye show-password" onClick={this.showPassword}></i>
                 </div>
-                <button type="submit" className="sign-in-button">Log In</button>
-                <button type="submit" className="google-button"><img src={googleLogo} alt="Google Logo" className="google-logo"/>Log In With Google</button>
-                <a href="#" className="sign-in-link">Don't have an account? Sign up here</a>
+                <button type="submit" className="sign-in-button" onClick={this.props.onSubmit}>Log In</button>
+                <button type="submit" className="google-button" id="log-in-google"><img src={googleLogo} alt="Google Logo" className="google-logo"/>Log In With Google</button>
+                <a href="#" className="sign-in-link" id="link-to-sign-up" onClick={this.props.onClick}>Don't have an account? Sign up here</a>
             </form>
         );
     }

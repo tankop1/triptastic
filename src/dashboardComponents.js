@@ -1,12 +1,13 @@
 import React from 'react';
 import './dashboardComponents.css';
-import foursquareLogo from './powered-by-foursquare-removebg-preview.png';
+import foursquareLogo from './powered-by-foursquare-removebg-preview.png'; // This image was taken from Foursquare, and the background was removed using remove.bg
 
-const mapEndpoint = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyD9Jj7nefkF_Py11IlyQFQ3EfE9bNTK4wc&q=';
-const weatherEndpoint = 'https://api.openweathermap.org/data/2.5/weather?appid=d1abe5f16eb3b088a68ad6db06805101&q=';
-const timeEndpoint = 'https://api.ipgeolocation.io/timezone?apiKey=117d2a387d3946eab53ad7530118c2f8&location=';
-// https://timezone.abstractapi.com/v1/current_time/?api_key=de96946ebedc4ad6bc84c28b02f5a8ba&location=
-const yelpEndpoint = 'https://api.foursquare.com/v2/venues/explore?client_id=IYH3OLP3TP0KINTE1WALOACGWEBTRX2IXANEHKUM5AU3SKSJ&client_secret=PX4VE1B4VFFEECGDDC25150M5O12H01NJJE3USLYEPLELU53&limit=50&v=20180101&near=';
+// I have removed the api keys from the endpoints below. To get your own credentials, go to the website commented to the right of the desired endpoint.
+
+const mapEndpoint = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyD9Jj7nefkF_Py11IlyQFQ3EfE9bNTK4wc&q='; // https://developers.google.com/maps/documentation/embed/get-started
+const weatherEndpoint = 'https://api.openweathermap.org/data/2.5/weather?appid=d1abe5f16eb3b088a68ad6db06805101&q='; // https://openweathermap.org/api
+const timeEndpoint = 'https://api.ipgeolocation.io/timezone?apiKey=61a1e64675f24901966598ed0b785ccc&location='; // https://ipgeolocation.io/timezone-api.html
+const yelpEndpoint = 'https://api.foursquare.com/v2/venues/explore?client_id=IYH3OLP3TP0KINTE1WALOACGWEBTRX2IXANEHKUM5AU3SKSJ&client_secret=PX4VE1B4VFFEECGDDC25150M5O12H01NJJE3USLYEPLELU53&v=20180323&near='; // THIS IS NOT ACTUALLY THE YELP API, IT IS THE FOURSQUARE API: https://developer.foursquare.com/
 
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let temperature;
@@ -45,7 +46,7 @@ async function getTimeZone(param) {
             isDST = jsonResponse.is_dst;
         }
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
 }
 
@@ -63,7 +64,7 @@ async function getAttractions(param, extraParam) {
     }
 }
 
-const kelvinToFahrenheit = k => ((k - 273.15) * 9 / 5 + 32).toFixed(0);
+const kelvinToFahrenheit = k => ((k - 273.15) * 9 / 5 + 32).toFixed(0); // Function taken from www.stackoverflow.com
 
 export class MapNode extends React.Component {
     render() {
@@ -89,7 +90,7 @@ export class WeatherNode extends React.Component {
     }
 
     render() {
-        if (temperature) {
+        if (temperature && this.props.param) {
             return (
                 <div id="weather-container">
                     <h4 id="date">{weekDays[(new Date()).getDay()]},&nbsp;{`${Date()}`.slice(4,15)}</h4>
@@ -99,7 +100,7 @@ export class WeatherNode extends React.Component {
                     <h4 id="conditions">The current weather includes {conditions}</h4>
                 </div>
             );
-        }
+        } // image was taken from openweathermap.org as part of the Open Weather API
         else {
             return (
                 <div id="weather-container">
@@ -185,11 +186,11 @@ export class AttractionsNode extends React.Component {
 
         //else if (this.state.category === 'other') {
         //    getAttractions(this.props.param, '&query' + document.getElementById('query').value);
-        //}
+        //} STILL WORKING ON "OTHER" CATEGORY
     }
 
     render() {
-        if (venues) {
+        if (venues && this.props.param) {
             if (venues[0]) {
                 return (
                     <div id="attractions-container">
@@ -390,7 +391,7 @@ export class TimeNode extends React.Component {
     }
 
     render() {
-        if (timeZone) {
+        if (timeZone && this.props.param) {
             return (
                 <div id="time-container">
                     <div className="clock">
